@@ -1,6 +1,14 @@
-Open terminal inside the Web scrapper FOLDER and EXECUTE the below command to start the node Js server just the syntax without the arrows and hit enter
+How to run this app locally : 
 
->>  node server.js  <<
+Download zip file / Unzip 
+ Enter the Webscrapper folder 
+
+Open terminal inside the Web scrapper FOLDER and EXECUTE the below command to start the node Js server 
+ 
+Command 1 : npm install express cors cheerio (enter)
+Command 2 : node server.js (enter)
+
+This will install a node_module folder inside your Webscrapper folder and when you run the command " node server.js "  the app will start locally
 
 
 you will see 

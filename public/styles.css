@@ -1,0 +1,232 @@
+/* public/styles.css - Hacker Theme */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap'); /* Or use a system monospace font */
+
+:root {
+    --hacker-bg: #0a0a0a;        /* Very dark background */
+    --hacker-text: #00ff41;      /* Bright green text */
+    --hacker-secondary: #cccccc; /* Dimmer white/grey for less emphasis */
+    --hacker-border: #00ff41;    /* Green border */
+    --hacker-error: #ff4154;     /* Red for errors */
+    --hacker-success: #00ff41;   /* Green for success */
+    --hacker-link: #61dafb;      /* A contrasting blue/cyan for links */
+    --hacker-glow: 0 0 5px var(--hacker-text); /* Subtle glow effect */
+}
+
+body {
+    font-family: 'Source Code Pro', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; /* Monospace font stack */
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--hacker-bg);
+    color: var(--hacker-text);
+}
+
+h1, h2 {
+    color: var(--hacker-text);
+    text-align: center;
+    text-shadow: var(--hacker-glow); /* Add glow to headings */
+    border-bottom: 1px solid var(--hacker-border);
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    letter-spacing: 2px; /* Add some letter spacing */
+}
+
+.input-area {
+    background-color: rgba(0, 0, 0, 0.3); /* Slightly transparent black */
+    padding: 20px;
+    border: 1px solid var(--hacker-border);
+    box-shadow: var(--hacker-glow); /* Apply glow */
+    margin-bottom: 30px;
+    border-radius: 0; /* Sharp corners */
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--hacker-text);
+    text-transform: uppercase; /* Uppercase labels */
+    letter-spacing: 1px;
+}
+
+textarea {
+    width: calc(100% - 22px); /* Account for padding and border */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--hacker-border);
+    border-radius: 0; /* Sharp corners */
+    font-size: 1rem;
+    background-color: #111; /* Darker input background */
+    color: var(--hacker-text);
+    resize: vertical;
+    font-family: inherit; /* Inherit monospace font */
+    box-shadow: inset 0 0 8px rgba(0, 255, 65, 0.3); /* Inner green glow */
+}
+
+textarea::placeholder {
+    color: rgba(0, 255, 65, 0.5); /* Dimmer green for placeholder */
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    background-color: var(--hacker-bg); /* Dark background */
+    color: var(--hacker-text);
+    border: 1px solid var(--hacker-border);
+    border-radius: 0; /* Sharp corners */
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    box-shadow: 0 0 5px rgba(0, 255, 65, 0.5); /* Subtle outer glow */
+}
+
+button:hover {
+    background-color: var(--hacker-text); /* Invert colors on hover */
+    color: var(--hacker-bg);
+    box-shadow: 0 0 15px var(--hacker-text); /* Stronger glow on hover */
+}
+
+button:active {
+    background-color: #00cc34; /* Slightly different green on click */
+    color: #000;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); /* Inner shadow on click */
+    transform: translateY(1px);
+}
+
+button:disabled {
+    background-color: #222;
+    color: #555;
+    border-color: #444;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+#loading {
+    text-align: center;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--hacker-text);
+    border: 1px dashed var(--hacker-border); /* Dashed border for loading */
+    border-radius: 0;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: blink 1.5s linear infinite; /* Blinking effect */
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+
+#resultsArea {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border: 1px solid var(--hacker-border);
+    min-height: 100px;
+    border-radius: 0;
+    box-shadow: inset 0 0 10px rgba(0, 255, 65, 0.2); /* Inner glow for results area */
+}
+
+.result-item {
+    background-color: transparent; /* No background needed */
+    border: 1px dashed var(--hacker-secondary); /* Dashed grey border */
+    border-radius: 0;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: border-color 0.2s ease;
+}
+
+.result-item:hover {
+    border-color: var(--hacker-border); /* Highlight border on hover */
+}
+
+.result-item h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--hacker-link); /* Use link color for URL */
+    font-size: 1.1em;
+    word-wrap: break-word;
+    border-bottom: 1px solid var(--hacker-secondary);
+    padding-bottom: 8px;
+    text-shadow: 0 0 3px var(--hacker-link);
+}
+
+.result-item p {
+    margin: 8px 0;
+    font-size: 0.95em;
+    color: var(--hacker-secondary); /* Secondary color for paragraphs */
+}
+
+.result-item p span { /* Target status spans specifically */
+    color: var(--hacker-text); /* Default to main text color */
+    font-weight: bold;
+}
+
+
+.result-item ul {
+    list-style: none; /* Use '>> ' prefix instead */
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.result-item li {
+    background-color: transparent;
+    border: none; /* Remove list item border */
+    border-left: 2px solid var(--hacker-border); /* Keep left border */
+    padding: 5px 10px;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+    border-radius: 0;
+    color: var(--hacker-secondary);
+    position: relative; /* For pseudo-element */
+}
+
+/* Optional: Add a '>>' prefix like a terminal */
+/*
+.result-item li::before {
+    content: ">> ";
+    color: var(--hacker-text);
+    font-weight: bold;
+    position: absolute;
+    left: -20px;
+}
+.result-item ul { padding-left: 25px; }
+*/
+
+
+.result-item li strong {
+    color: var(--hacker-text); /* Main green for keys */
+}
+
+.status-success {
+    color: var(--hacker-success) !important; /* Ensure override */
+    text-shadow: var(--hacker-glow);
+}
+
+.status-failed {
+    color: var(--hacker-error) !important; /* Ensure override */
+    text-shadow: 0 0 5px var(--hacker-error);
+}
+
+.error-message {
+    color: var(--hacker-error);
+    background-color: rgba(255, 65, 84, 0.1); /* Faint red background */
+    border: 1px solid var(--hacker-error);
+    padding: 10px 15px;
+    border-radius: 0;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
